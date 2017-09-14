@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Com.LanhNet.Iot.Domain.Services;
+using Com.LanhNet.Iot.WepApi.Infrastructure.common;
 
 namespace Com.LanhNet.Iot.WepApi.Controllers
 {
@@ -18,6 +19,11 @@ namespace Com.LanhNet.Iot.WepApi.Controllers
 
         public IActionResult Index()
         {
+            string test = "{cmd:'tick'},{";
+
+            test = Base64Encoder.Encode(test);
+            string tmp = Base64Encoder.Decode(test);
+
             return View();
         }
     }
