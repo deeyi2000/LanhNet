@@ -64,22 +64,24 @@ namespace Com.LanhNet.Iot.Domain.Model
         /// </summary>
         /// <param name="millisecondsTimeout"></param>
         /// <returns></returns>
-        protected object Wait(int millisecondsTimeout = 15000)
+        protected bool Wait(out object message, int millisecondsTimeout = 15000)
         {
-            object message = null;
+            message = null;
             if (IotBase.CurrentCommandType.Value == eIotCommandType.Sync)
             {
                 _onlineTime = DateTime.Now.AddMilliseconds(millisecondsTimeout * 2);
                 _event.Reset();
                 if (_queue.Count <= 0)
                 {
-                    
                     _event.WaitOne((int)(millisecondsTimeout * 0.6));
                 }
                 if (_queue.Count > 0)
+                {
                     message = _queue.Dequeue();
+                    return true;
+                }
             }
-            return message;
+            return false;
         }
 
         /// <summary>
@@ -90,6 +92,22 @@ namespace Com.LanhNet.Iot.Domain.Model
         {
             _queue.Enqueue(message);
             _event.Set();
+        }
+
+        /// <summary>
+        /// 尝试获取消息
+        /// </summary>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        protected bool TryGet(out object message)
+        {
+            if (_queue.Count > 0)
+            {
+                message = _queue.Dequeue();
+                return true;
+            }
+            message = null;
+            return false;
         }
         #endregion
 
@@ -138,7 +156,7 @@ namespace Com.LanhNet.Iot.Domain.Model
                 if (parameters[i].Name == "context")
                     invokeParams[i] = cmd;
                 else if (cmd.TryGetValue(parameters[i].Name, out JToken p))
-                    invokeParams[i] = typeof(JToken).GetMethod("Value").MakeGenericMethod(parameters[i].ParameterType).Invoke(p, null);
+                    invokeParams[i] = p.ToObject(parameters[i].ParameterType);
                 else
                     invokeParams[i] = null;
             }

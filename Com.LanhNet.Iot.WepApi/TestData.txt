@@ -16,6 +16,9 @@ unlock: {cmd:'unlock'} / {"result": "ok"}
 tick: {cmd:'tick',lon:'0.0',lat:'0.0',sta:'lock',vol:'00.0'}
 request: http://localhost:51541/api/v1/sync/b9b3bcfd0e5c40f5bb967bf1305cc082/e2NtZDondGljaycsbG9uOicwLjAnLGxhdDonMC4wJyxzdGE6J2xvY2snLHZvbDonMDAuMCd9
 response: ew0KICAicmVzdWx0IjogIm9rIg0KfQ
+tick: {cmd:'tick',lon:11619.9122,lat:3729.8264,sta:'unlock',vol:12.1}
+request: http://localhost:51541/api/v1/sync/b9b3bcfd0e5c40f5bb967bf1305cc082/e2NtZDogJ3RpY2snLGxvbjogMTE2MTkuOTEyMixsYXQ6IDM3MjkuODI2NCxzdGE6ICd1bmxvY2snLHZvbDogMTIuMX0
+response: ew0KICAicmVzdWx0IjogIm9rIg0KfQ
 
 lock: {cmd:'lock'}
 request: http://localhost:51541/api/v1/set/b9b3bcfd0e5c40f5bb967bf1305cc082/e2NtZDonbG9jayd9
