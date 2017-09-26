@@ -74,5 +74,17 @@ namespace Com.LanhNet.Iot.WepApi.Domain.Models
             }
             return IotResultHelper.OK;
         }
+
+        [IotCommand(Type = eIotCommandType.Get)]
+        public JObject Status()
+        {
+            return IotResultHelper.Parse(new
+            {
+                sta = _state,
+                lon = _longitude,
+                lat = _latitude,
+                vol = _voltage
+            }, eIotResultType.OK);
+        }
     }
 }
