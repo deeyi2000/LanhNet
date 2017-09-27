@@ -20,6 +20,8 @@ namespace Com.LanhNet.Iot.WepApi
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseKestrel()
+                .UseUrls("http://iot.wxopens.com:8764")
                 .Build();
     }
 }
