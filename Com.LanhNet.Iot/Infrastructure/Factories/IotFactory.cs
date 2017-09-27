@@ -24,25 +24,36 @@ namespace Com.LanhNet.Iot.Infrastructure.Factories
 
         public IotFactory(IIotRepository repository = null, int gcInterval = (10 * 60 * 1000))
         {
-            IotBase.OnIotDispose += IotBase_OnIotDispose;
+            //IotBase.OnIotDispose += IotBase_OnIotDispose;
             _repository = repository;
             _dicIotClients = new Dictionary<Guid, IotClient>();
             _dicIotTypes = new Dictionary<uint, Func<Guid, IIot>>();
             _gcTimer = new Timer(_gcTimer_OnTimerCallback, null, 0, gcInterval);
         }
 
+        /* 暂时用不上OnIotDispose事件
         private void IotBase_OnIotDispose(object sender, IotDisposeEventArgs args)
         {
             if (_dicIotClients.ContainsKey(args.Id))
                 _dicIotClients.Remove(args.Id);
-        }
+        }*/
 
         private void _gcTimer_OnTimerCallback(object state)
         {
-            foreach(KeyValuePair<Guid, IotClient> kv in _dicIotClients)
+            lock (_dicIotClients)
             {
-                if (kv.Value.Lifetime < DateTime.Now)
-                    kv.Value.Iot.Dispose();
+                var ids = new Guid[_dicIotClients.Count];
+                _dicIotClients.Keys.CopyTo(ids, 0);
+
+                foreach (var id in ids)
+                {
+                    var c = _dicIotClients[id];
+                    if (c.Lifetime < DateTime.Now)
+                    {
+                        _dicIotClients.Remove(id);
+                        c.Iot.Dispose();
+                    }
+                }
             }
         }
 
@@ -92,7 +103,10 @@ namespace Com.LanhNet.Iot.Infrastructure.Factories
                 {
                     Iot = clientConstructor.Invoke(id)
                 };
-                _dicIotClients.Add(id, client);
+                lock (_dicIotClients)
+                {
+                    _dicIotClients.Add(id, client);
+                }
             }
 
             client.Lifetime = DateTime.Now.AddMinutes(10.0);
