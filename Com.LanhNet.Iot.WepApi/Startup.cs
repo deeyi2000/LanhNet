@@ -6,9 +6,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using Com.LanhNet.Iot.Infrastructure.Extensions;
-using Com.LanhNet.Iot.WepApi.Domain.Models;
+using Com.LanhNet.Iot.WebApi.Domain.Models;
 
-namespace Com.LanhNet.Iot.WepApi
+namespace Com.LanhNet.Iot.WebApi
 {
     public class Startup
     {

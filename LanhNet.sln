@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.LanhNet.Iot", "Com.LanhNet.Iot\Com.LanhNet.Iot.csproj", "{2AD2A172-9A2A-4C16-BB66-DD0629300CA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.LanhNet.Iot.WepApi", "Com.LanhNet.Iot.WepApi\Com.LanhNet.Iot.WepApi.csproj", "{121F9317-B744-4105-B02E-AF45AF02BEC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.LanhNet.Iot.WebApi", "Com.LanhNet.Iot.WepApi\Com.LanhNet.Iot.WebApi.csproj", "{121F9317-B744-4105-B02E-AF45AF02BEC7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Com.LanhNet.Iot.Domain.Services;
-using Com.LanhNet.Iot.WepApi.Infrastructure.common;
+using Com.LanhNet.Iot.WebApi.Infrastructure.common;
 
-namespace Com.LanhNet.Iot.WepApi.Controllers
+namespace Com.LanhNet.Iot.WebApi.Controllers
 {
     public class HomeController : Controller
     {

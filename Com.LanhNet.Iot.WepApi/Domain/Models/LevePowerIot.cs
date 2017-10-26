@@ -4,7 +4,7 @@ using Com.LanhNet.Iot.Domain.Model;
 using Com.LanhNet.Iot.Infrastructure.Attributes;
 using Com.LanhNet.Iot.Infrastructure.Helper;
 
-namespace Com.LanhNet.Iot.WepApi.Domain.Models
+namespace Com.LanhNet.Iot.WebApi.Domain.Models
 {
     public enum eLevePowerIotState
     {
