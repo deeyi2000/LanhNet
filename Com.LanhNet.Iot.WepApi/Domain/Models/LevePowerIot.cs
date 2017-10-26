@@ -4,7 +4,7 @@ using Com.LanhNet.Iot.Domain.Model;
 using Com.LanhNet.Iot.Infrastructure.Attributes;
 using Com.LanhNet.Iot.Infrastructure.Helper;
 
-namespace Com.LanhNet.Iot.WepApi.Domain.Models
+namespace Com.LanhNet.Iot.WebApi.Domain.Models
 {
     public enum eLevePowerIotState
     {
@@ -73,6 +73,18 @@ namespace Com.LanhNet.Iot.WepApi.Domain.Models
                 Send("{action:'lock'}");
             }
             return IotResultHelper.OK;
+        }
+
+        [IotCommand(Type = eIotCommandType.Get)]
+        public JObject Status()
+        {
+            return IotResultHelper.Parse(new
+            {
+                sta = _state,
+                lon = _longitude,
+                lat = _latitude,
+                vol = _voltage
+            }, eIotResultType.OK);
         }
     }
 }

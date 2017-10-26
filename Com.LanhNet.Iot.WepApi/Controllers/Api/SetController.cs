@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using Com.LanhNet.Iot.Domain.Services;
 using Com.LanhNet.Iot.Infrastructure.Helper;
-using Com.LanhNet.Iot.WepApi.Infrastructure.common;
+using Com.LanhNet.Iot.WebApi.Infrastructure.common;
 
-namespace Com.LanhNet.Iot.WepApi.Controllers
+namespace Com.LanhNet.Iot.WebApi.Controllers
 {
     [Route("api/v1/[controller]")]
     public class SetController : Controller

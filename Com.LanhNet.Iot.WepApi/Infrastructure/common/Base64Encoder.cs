@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Com.LanhNet.Iot.WepApi.Infrastructure.common
+namespace Com.LanhNet.Iot.WebApi.Infrastructure.common
 {
     public class Base64Encoder
     {

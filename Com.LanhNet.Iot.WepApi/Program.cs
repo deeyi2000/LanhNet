@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
-namespace Com.LanhNet.Iot.WepApi
+namespace Com.LanhNet.Iot.WebApi
 {
     public class Program
     {
@@ -20,6 +20,7 @@ namespace Com.LanhNet.Iot.WepApi
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
+                .UseIISIntegration()
                 .Build();
     }
 }

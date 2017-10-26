@@ -64,16 +64,16 @@ namespace Com.LanhNet.Iot.Domain.Model
         /// </summary>
         /// <param name="millisecondsTimeout"></param>
         /// <returns></returns>
-        protected bool Wait(out object message, int millisecondsTimeout = 15000)
+        protected bool Wait(out object message, int millisecondsTimeout = 330000)
         {
             message = null;
-            if (IotBase.CurrentCommandType.Value == eIotCommandType.Sync)
+            if (eIotCommandType.Sync == IotBase.CurrentCommandType.Value)
             {
-                _onlineTime = DateTime.Now.AddMilliseconds(millisecondsTimeout * 2);
+                _onlineTime = DateTime.Now.AddMilliseconds(millisecondsTimeout * 1.1);
                 _event.Reset();
                 if (_queue.Count <= 0)
                 {
-                    _event.WaitOne((int)(millisecondsTimeout * 0.6));
+                    _event.WaitOne((int)(millisecondsTimeout * 0.9));
                 }
                 if (_queue.Count > 0)
                 {
