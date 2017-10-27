@@ -91,10 +91,7 @@ namespace Com.LanhNet.Iot.Infrastructure.Factories
             if (!_dicIotClients.TryGetValue(id, out IotClient client))
             {
                 byte[] byteId = id.ToByteArray();
-                uint typeId = (uint)((byteId[0] & 0xFF) |
-                                     ((byteId[1] << 8) & 0xFF00) |
-                                     ((byteId[2] << 16) & 0xFF0000) |
-                                     ((byteId[3] << 24) & 0xFF000000));
+                uint typeId = BitConverter.ToUInt32(byteId, 0);
 
                 if (!_dicIotTypes.TryGetValue(typeId, out Func<Guid, IIot> clientConstructor))
                     return null;

@@ -30,8 +30,4 @@
   <ItemGroup>
     <ProjectReference Include="..\Com.LanhNet.Iot\Com.LanhNet.Iot.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="wwwroot\**\*" CopyToPublishDirectory="PreserveNewest" />
-  </ItemGroup>
 </Project>

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json.Linq;
 using Com.LanhNet.Iot.Domain.Services;
@@ -7,24 +10,24 @@ using Com.LanhNet.Iot.WebApi.Infrastructure.common;
 
 namespace Com.LanhNet.Iot.WebApi.Controllers
 {
-    [Route("api/v1/[controller]")]
-    public class UpdateController : Controller
+    [Route("api/[controller]")]
+    public class GetController : Controller
     {
         protected IIotApiService _service;
 
-        public UpdateController(IIotApiService service)
+        public GetController(IIotApiService service)
         {
             _service = service;
         }
 
-        // GET api/update/{id}/{cmd}
+        // GET api/get/{id}/{cmd}
         [HttpGet("{id}/{cmd}")]
         public string Get(Guid id, string cmd)
         {
             try
             {
                 cmd = Base64Encoder.Decode(cmd);
-                string result = _service.Update(id, JObject.Parse(cmd)).ToString();
+                string result = _service.Get(id, JObject.Parse(cmd)).ToString();
                 return Base64Encoder.Encode(result);
             }
             catch
@@ -33,14 +36,14 @@ namespace Com.LanhNet.Iot.WebApi.Controllers
             }
         }
 
-        // POST api/update/{id}
+        // POST api/get/{id}
         [HttpPost("{id}")]
         public string Post(Guid id, [FromBody]string cmd)
         {
             try
             {
                 cmd = Base64Encoder.Decode(cmd);
-                string result = _service.Update(id, JObject.Parse(cmd)).ToString();
+                string result = _service.Get(id, JObject.Parse(cmd)).ToString();
                 return Base64Encoder.Encode(result);
             }
             catch
