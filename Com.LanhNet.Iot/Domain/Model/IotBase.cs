@@ -64,7 +64,7 @@ namespace Com.LanhNet.Iot.Domain.Model
         /// </summary>
         /// <param name="millisecondsTimeout"></param>
         /// <returns></returns>
-        protected bool Wait(out object message, int millisecondsTimeout = 33 * 1000)
+        protected bool Wait(out object message, int millisecondsTimeout = 330 * 1000)
         {
             message = null;
             if (eIotCommandType.Sync == IotBase.CurrentCommandType.Value)
