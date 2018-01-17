@@ -1,0 +1,8 @@
+version: '3'
+
+services:
+  com.lanhnet.iot.webapi:
+    image: com.lanhnet.iot.webapi
+    build:
+      context: .
+      dockerfile: Com.LanhNet.Iot.WebApi/Dockerfile

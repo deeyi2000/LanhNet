@@ -28,10 +28,10 @@ namespace Com.LanhNet.Iot.WebApi.Domain.Models
         }
 
         [IotCommand(Type = eIotCommandType.Sync)]
-        public JObject Tick(eLevePowerIotState sta, double lon, double lat, float vol)
+        public JObject Tick(eLevePowerIotState sta, double lng, double lat, float vol)
         {
             var state = sta; //sta.ToLower() == "lock" ? eLevePowerIotState.Lock : eLevePowerIotState.Unlock;
-            _longitude = lon; //Convert.ToDouble(lon);
+            _longitude = lng; //Convert.ToDouble(lon);
             _latitude = lat; //Convert.ToDouble(lat);
             _voltage = vol; //Convert.ToSingle(vol);
 
@@ -80,8 +80,8 @@ namespace Com.LanhNet.Iot.WebApi.Domain.Models
         {
             return IotResultHelper.Parse(new
             {
-                sta = _state,
-                lon = _longitude,
+                sta = Enum.GetName(typeof(eLevePowerIotState), _state),
+                lng = _longitude,
                 lat = _latitude,
                 vol = _voltage
             }, eIotResultType.OK);

@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+VisualStudioVersion = 15.0.27130.2020
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.LanhNet.Iot", "Com.LanhNet.Iot\Com.LanhNet.Iot.csproj", "{2AD2A172-9A2A-4C16-BB66-DD0629300CA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Com.LanhNet.Iot", "Com.LanhNet.Iot\Com.LanhNet.Iot.csproj", "{2AD2A172-9A2A-4C16-BB66-DD0629300CA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Com.LanhNet.Iot.WebApi", "Com.LanhNet.Iot.WebApi\Com.LanhNet.Iot.WebApi.csproj", "{121F9317-B744-4105-B02E-AF45AF02BEC7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Com.LanhNet.Iot.WebApi", "Com.LanhNet.Iot.WebApi\Com.LanhNet.Iot.WebApi.csproj", "{121F9317-B744-4105-B02E-AF45AF02BEC7}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{C490269D-BA93-499B-87DC-C6742A8E37FD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{121F9317-B744-4105-B02E-AF45AF02BEC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{121F9317-B744-4105-B02E-AF45AF02BEC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{121F9317-B744-4105-B02E-AF45AF02BEC7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C490269D-BA93-499B-87DC-C6742A8E37FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C490269D-BA93-499B-87DC-C6742A8E37FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C490269D-BA93-499B-87DC-C6742A8E37FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C490269D-BA93-499B-87DC-C6742A8E37FD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
